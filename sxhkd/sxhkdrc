@@ -1,0 +1,107 @@
+# =============================================
+# TERMINAL E LANÇADOR
+# =============================================
+
+# Terminal emulator
+super + t
+    kitty
+
+# Browser
+super + b
+    firefox
+
+# Files
+super + e
+    rofi -show filebrowser -theme ~/.config/rofi/launchers/type-7/style-8
+
+# Program launcher
+super + space
+    rofi -show drun -theme ~/.config/rofi/launchers/type-7/style-8
+
+# Window Manager
+super + Tab
+    rofi -show window -theme ~/.config/rofi/launchers/type-7/style-8
+
+# Better Lockscreen
+alt + shift + x
+    betterlockscreen -l dim
+
+# =============================================
+# GERENCIAMENTO DE JANELAS E SESSÃO
+# =============================================
+
+# Fechar Janela
+super + q
+    bspc node -c
+
+# Alternar Fullscreen
+super + f
+    bspc node -t '~fullscreen'
+
+# Reiniciar BSPWM 
+super + shift + r
+    bspc wm -r
+
+# Sair do BSPWM
+super + alt + r
+    bspc quit
+
+# =============================================
+# WORKSPACES
+# =============================================
+
+# Alternar entre os workspaces 1 a 10
+super + {1-9,0}
+    bspc desktop -f '^{1-9,10}'
+
+# Enviar janela para os workspaces 1 a 10
+super + shift + {1-9,0}
+    bspc node -d '^{1-9,10}' --follow
+
+# =============================================
+# CONTROLE DE ÁUDIO (Via wpctl - Pipewire)
+# =============================================
+
+# Aumentar Volume (Limite em 100%)
+XF86AudioRaiseVolume
+    wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+
+
+# Diminuir Volume
+XF86AudioLowerVolume
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+
+# Mute/Unmute
+XF86AudioMute
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+# Mute/Unmute do Microfone
+XF86AudioMicMute
+    wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+# =============================================
+# CONTROLE DE BRILHO (via brightnessctl)
+# =============================================
+
+# Aumentar brilho
+XF86MonBrightnessUp
+    brightnessctl set +10%
+
+# Diminuir brilho
+XF86MonBrightnessDown
+    brightnessctl set 10%-
+
+# =============================================
+# CAPTURA DE TELA (PRINT)
+# =============================================
+
+# Print de toda a tela -> Área de transferência
+Print
+    scrot '/tmp/%Y-%m-%d-%H%M%S-screenshot.png' -e 'xclip -selection clipboard -target image/png -i $f && rm $f'
+
+# Print de área selecionada -> Área de transferência
+shift + Print
+    scrot -s '/tmp/%Y-%m-%d-%H%M%S-screenshot.png' -e 'xclip -selection clipboard -target image/png -i $f && rm $f'
+
+# Print de toda a tela -> Salva em ~/Imagens
+super + Print
+    scrot '%Y-%m-%d-%H%M%S-screenshot.png' -e 'mv $f ~/Imagens/'

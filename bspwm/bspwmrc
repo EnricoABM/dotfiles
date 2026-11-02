@@ -1,0 +1,52 @@
+#!/bin/sh
+
+pgrep -x sxhkd >/dev/null || sxhkd &
+
+# Aplica o perfil de monitor correto via autorandr e aguarda estabilizar
+autorandr --change &
+sleep 1.5
+
+# Define workspaces dependendo dos monitores conectados
+if xrandr | grep -q "HDMI-1 connected" && xrandr | grep "HDMI-1 connected" | grep -qv "disconnected"; then
+    # Com 2 monitores: 1-5 na tela principal, 6-10 na tela secundaria
+    bspc monitor eDP-1 -d 1 2 3 4 5
+    bspc monitor HDMI-1 -d 6 7 8 9 10
+    feh --bg-fill ~/Downloads/wallpaper_1.jpg
+
+else
+    # Com apenas 1 monitor: cria/mantem apenas os workspaces 1-5
+    bspcnodes=$(bspc query -D)
+    
+    # Move todos os desktops para o monitor principal antes de remover os excedentes
+    bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9 10
+    bspc monitor eDP-1 -d 1 2 3 4 5
+    
+    feh --bg-fill ~/Pictures/Wallpaper/wallpaper_1.jpg
+fi
+
+# Executa o Polybar
+$HOME/.config/polybar/launch.sh &
+
+sh ~/.fehbg &
+
+pgrep -x picom >/dev/null || picom --config "$HOME/.config/picom/picom.conf" &
+
+bspc config border_width 2
+bspc config window_gap 2
+
+bspc config split_ratio 0.52
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+
+bspc config focused_border_color "#FF007A" # Azul claro para janela focada
+bspc config normal_border_color "#44475a"  # Cinza escuro para janelas em segundo plano
+bspc config active_border_color "#bd93f9"  # Roxo para janelas ativas mas não focadas
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+if [[ condition ]]; then
+    
+fi

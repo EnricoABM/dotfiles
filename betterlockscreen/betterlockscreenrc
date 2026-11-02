@@ -1,0 +1,70 @@
+
+# Cyberpunk theme
+
+# Wallpaper and effects
+display_on=0
+span_image=false
+lock_timeout=300
+fx_list=(dim blur dimblur pixel dimpixel color)
+dim_level=40
+blur_level=1
+pixel_scale=10,1000
+solid_color=1b1b2a
+wallpaper_cmd="feh --bg-fill"
+quiet=false
+
+# Login box
+loginbox=1b1b2acc
+loginshadow=00000000
+locktext="ACESSO RESTRITO"
+font="JetBrainsMono Nerd Font"
+
+# Default ring and interior
+ringcolor=ff007aff
+insidecolor=1b1b2aee
+separatorcolor=a700ffff
+
+# Verification: cyber mint
+ringvercolor=00ffb3ff
+insidevercolor=1b1b2aee
+
+# Incorrect password: neon pink
+ringwrongcolor=ff007aff
+insidewrongcolor=1b1b2aee
+
+# Clock and text
+timecolor=00ffb3ff
+time_format="%H:%M"
+greetercolor=ffea00ff
+layoutcolor=a700ffff
+
+# Keyboard highlights
+keyhlcolor=ffea00ff
+bshlcolor=a700ffff
+
+# Status messages
+veriftext=""
+verifcolor=00ffb3ff
+wrongtext=""
+wrongcolor=a700ffff
+modifcolor=a700ffff
+bgcolor=1b1b2aff
+
+# Clock options supported by the local i3lock parser
+lockargs=(
+--clock
+  --date-str=""
+  --date-font="JetBrainsMono Nerd Font"
+  --date-size=22
+  --date-color="ff007aff"
+
+  --time-font="JetBrainsMono Nerd Font"
+  --time-size=128
+  --time-color="00ffb3ff"
+  --time-pos="x+600:y+h/2"
+  --time-align=2
+
+  --indicator
+  --ring-width=4
+  --ignore-empty-password
+)

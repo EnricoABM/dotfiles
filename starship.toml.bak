@@ -1,0 +1,75 @@
+# ~/.config/starship.toml
+
+# Desativa a linha em branco automática antes do prompt
+add_newline = false
+
+# --- ESTRUTURA DO PROMPT (Linha Superior vs Linha Inferior) ---
+format = """
+$os$username$hostname$git_branch$git_state$git_status$docker_context$python\
+\n$directory\
+\n$character"""
+
+# --- 1. SISTEMA OPERACIONAL & USUÁRIO ---
+[os]
+disabled = false
+style = "bold #8ec07c" # Verde Aqua do Gruvbox
+# Mapeamento leve usando texto minimalista em vez de ícones complexos
+[os.symbols]
+Arch = " arch "
+
+[username]
+show_always = true
+style_user = "bold #fabd2f" # Amarelo Dourado Gruvbox
+format = "[$user]($style) "
+
+[hostname]
+ssh_only = true
+style = "bold #83a598" # Azul
+format = "@[$hostname]($style) "
+
+# --- 2. DIRETÓRIO ---
+[directory]
+truncation_length = 10
+style = "bold #ebdbb2" # Creme Claro
+format = "󱂵 [$path]($style) "
+
+# --- 3. FUNCIONALIDADE: GIT (Otimizado e Sem Ícones) ---
+[git_branch]
+symbol = " git:"
+style = "bold #fe8019" # Laranja Gruvbox
+format = "on [$symbol$branch]($style) "
+
+[git_status]
+format = "([\\[$all_status$ahead_behind\\]]($style) )"
+style = "bold #fb4934" # Vermelho
+conflicted = "="
+ahead = ">"
+behind = "<"
+diverged = "<>"
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "x"
+
+# --- 4. FUNCIONALIDADE: DOCKER ---
+# Só aparece se houver um Dockerfile ou docker-compose.yml na pasta
+[docker_context]
+symbol = " docker:"
+style = "bold #83a598" # Azul claro
+format = "via [$symbol$context]($style) "
+only_with_files = true
+
+# --- 5. FUNCIONALIDADE: PYTHON (pyenv / virtualenv) ---
+# Só aparece se você estiver em um ambiente virtual ativo ou pasta com arquivos .py
+[python]
+symbol = " py:"
+style = "bold #b8bb26" # Verde Claro
+# Mostra a versão do python e o nome do virtualenv/pyenv se ativo
+format = "via [$symbol($version )(\\($virtualenv\\))]($style) "
+
+# --- 6. LINHA INFERIOR (Escrita) ---
+[character]
+success_symbol = "[❯](bold #fabd2f) " # Chevron dourado elegante para digitar ao lado
+error_symbol = "[❯](bold #fb4934) "   # Fica vermelho se o comando anterior falhar

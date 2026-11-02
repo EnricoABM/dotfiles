@@ -1,0 +1,12 @@
+2026/10/24-22:20:49.009 496cc Reusing MANIFEST /home/bertozzi/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
+2026/10/24-22:20:49.013 496cc Recovering log #22
+2026/10/24-22:20:49.153 496cc Reusing old log /home/bertozzi/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/000022.log 
+2026/10/24-22:51:48.863 496cc Level-0 table #27: started
+2026/10/24-22:51:48.915 496cc Level-0 table #27: 1059947 bytes OK
+2026/10/24-22:51:48.922 496cc Delete type=0 #22
+2026/10/24-22:53:48.967 496cc Compacting 1@1 + 1@2 files
+2026/10/24-22:53:48.989 496cc Generated table #28@1: 1277 keys, 194414 bytes
+2026/10/24-22:53:48.989 496cc Compacted 1@1 + 1@2 files => 194414 bytes
+2026/10/24-22:53:48.992 496cc compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/10/24-22:53:48.992 496cc Delete type=2 #24
+2026/10/24-22:53:48.992 496cc Delete type=2 #27

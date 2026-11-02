@@ -1,0 +1,73 @@
+
+# ~/.config/starship.toml
+
+# Desativa a linha em branco automática antes do prompt
+add_newline = false
+
+# --- ESTRUTURA DO PROMPT ---
+format = """
+$os$username$hostname$git_branch$git_state$git_status$docker_context$python\
+\n$directory\
+\n$character"""
+
+# --- 1. SISTEMA OPERACIONAL & USUÁRIO ---
+[os]
+disabled = false
+style = "bold #00FFB3"
+
+[os.symbols]
+Arch = " arch "
+
+[username]
+show_always = true
+style_user = "bold #FF007A"
+format = "[$user]($style) "
+
+[hostname]
+ssh_only = true
+style = "bold #A700FF"
+format = "@[$hostname]($style) "
+
+# --- 2. DIRETÓRIO ---
+[directory]
+truncation_length = 10
+style = "bold #00FFB3"
+format = "󱂵 [$path]($style) "
+
+# --- 3. GIT ---
+[git_branch]
+symbol = " git:"
+style = "bold #FF007A"
+format = "on [$symbol$branch]($style) "
+
+[git_status]
+format = "([\\[$all_status$ahead_behind\\]]($style) )"
+style = "bold #FFEA00"
+conflicted = "="
+ahead = ">"
+behind = "<"
+diverged = "<>"
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "x"
+
+# --- 4. DOCKER ---
+[docker_context]
+symbol = " docker:"
+style = "bold #00FFB3"
+format = "via [$symbol$context]($style) "
+only_with_files = true
+
+# --- 5. PYTHON ---
+[python]
+symbol = " py:"
+style = "bold #A700FF"
+format = "via [$symbol($version )(\\($virtualenv\\))]($style) "
+
+# --- 6. LINHA INFERIOR ---
+[character]
+success_symbol = "[❯](bold #FFEA00) "
+error_symbol = "[❯](bold #FF007A) "

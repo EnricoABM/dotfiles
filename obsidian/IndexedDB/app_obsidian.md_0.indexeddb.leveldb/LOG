@@ -1,0 +1,12 @@
+2026/10/28-16:11:17.741 5d43b Reusing MANIFEST /home/bertozzi/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
+2026/10/28-16:11:17.742 5d43b Recovering log #26
+2026/10/28-16:11:17.777 5d43b Reusing old log /home/bertozzi/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/000026.log 
+2026/10/28-16:11:18.439 5d43b Level-0 table #31: started
+2026/10/28-16:11:18.459 5d43b Level-0 table #31: 1320588 bytes OK
+2026/10/28-16:11:18.461 5d43b Delete type=0 #26
+2026/10/28-16:11:18.466 5d43b Compacting 1@1 + 1@2 files
+2026/10/28-16:11:18.475 5d43b Generated table #32@1: 1532 keys, 308125 bytes
+2026/10/28-16:11:18.476 5d43b Compacted 1@1 + 1@2 files => 308125 bytes
+2026/10/28-16:11:18.477 5d43b compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/10/28-16:11:18.478 5d43b Delete type=2 #28
+2026/10/28-16:11:18.478 5d43b Delete type=2 #31
